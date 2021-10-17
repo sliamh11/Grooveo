@@ -1,6 +1,6 @@
 const StopButton = (props) => {
     
-    // Return BoardButton
+    // Return ControlButton
     return(
         <div>Stop Button</div>
     );

@@ -1,12 +1,12 @@
 import './BoardManager.css';
-import { ButtonsBoard, PadsBoard } from '../index'
+import { ControlBoard, PadsBoard } from '../index'
 
 const BoardManager = () => {
     return (
         <div className="board center">
             <PadsBoard />
             <div></div>
-            <ButtonsBoard />
+            <ControlBoard />
         </div>
     );
 }

@@ -1,7 +1,7 @@
 
 const PlayButton = (props) => {
 
-    // return BoardButton
+    // return ControlButton
     return (
         <div>
             Play Button

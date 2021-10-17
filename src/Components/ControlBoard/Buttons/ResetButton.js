@@ -1,6 +1,6 @@
 const ResetButton = (props) => {
     
-    // Return BoardButton
+    // Return ControlButton
     return (
         <div>Reset Button</div>
     );

@@ -1,6 +1,6 @@
-import './ButtonsBoard.css'
+import './ControlBoard.css'
 
-const ButtonsBoard = () => {
+const ControlBoard = () => {
     return(
         <div className="center">
             Buttons Board
@@ -8,4 +8,4 @@ const ButtonsBoard = () => {
     )
 }
 
-export default ButtonsBoard;
+export default ControlBoard;
