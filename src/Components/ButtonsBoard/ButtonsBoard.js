@@ -2,7 +2,7 @@ import './ButtonsBoard.css'
 
 const ButtonsBoard = () => {
     return(
-        <div>
+        <div className="center">
             Buttons Board
         </div>
     )

@@ -2,7 +2,7 @@ import './PadsBoard.css';
 
 const PadsBoard = () => {
     return(
-        <div>
+        <div className="center">
             Pads Board
         </div>
     )

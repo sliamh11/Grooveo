@@ -1,9 +1,12 @@
 import './App.css';
+import BoardManager from './Components/BoardManager/BoardManager';
 
-function App() {
+const App = () => {
   return (
-   <div>Hello Moveo!</div> 
-  )
+    <div className="App center">
+      <BoardManager />
+    </div>
+  );
 }
 
 export default App;
