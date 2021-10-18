@@ -3,7 +3,7 @@ import { ControlBoard, PadsBoard } from '../index'
 
 const BoardManager = () => {
     return (
-        <div className="board center">
+        <div className="Board center">
             <PadsBoard />
             <div></div>
             <ControlBoard />

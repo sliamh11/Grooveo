@@ -1,25 +1,26 @@
-@media screen and (max-width: 600px) {
-    .ControlBoard{
-        height: 75%;
-        width: 100%;
-        display: grid;
-        grid-template-columns: repeat(4,1fr);
-    }
-}
-
-@media screen and (min-width: 600px) {
-    .ControlBoard{
-        height: 75%;
-        width: 100%;
-        display: grid;
-        grid-template-columns: repeat(2,1fr);
-        grid-template-rows: repeat(2,1fr);
-    }
-
+.ControlBoard{
+    height: 75%;
+    width: 100%;
+    display: grid;
 }
 
 .ControlBoard .ControlButton{
     display: flex;
     align-items: center;
     justify-content:center;
+}
+
+/* Mobile */
+@media screen and (max-width: 600px) {
+    .ControlBoard{
+        grid-template-columns: repeat(4,1fr);
+    }
+}
+
+/* Bigger screens */
+@media screen and (min-width: 600px) {
+    .ControlBoard{
+        grid-template-columns: repeat(2,1fr);
+        grid-template-rows: repeat(2,1fr);
+    }
 }

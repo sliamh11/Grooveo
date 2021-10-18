@@ -26,3 +26,10 @@
     transition:0.4s;
     color:#fefefe;
 }
+
+/* Mobile */
+@media only screen and (max-width: 600px) {
+    .Pad .Icon{
+        font-size: 9vw;
+    }
+}
