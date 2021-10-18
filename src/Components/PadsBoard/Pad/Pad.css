@@ -21,3 +21,8 @@
 .Pad .Icon{
     font-size: 5vw;
 }
+
+.Pad.active .Icon{
+    transition:0.4s;
+    color:#fefefe;
+}

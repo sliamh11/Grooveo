@@ -57,7 +57,7 @@ const Pad = ({ icon, audioPath, color }) => {
     };
 
     return (
-        <div className="Pad center" style={padStyle} onClick={handleClicked} >
+        <div className={`Pad center ${isPlaying ? "active" : ""}`} style={padStyle} onClick={handleClicked} >
             <Icon icon={icon ? icon : ""} />
         </div>
     )
