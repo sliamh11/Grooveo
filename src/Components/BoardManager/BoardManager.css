@@ -7,6 +7,7 @@
     grid-template-columns: 48% 4% 48%;
     background-color: #282c34;
     padding: 3%;
+    box-shadow: rgba(0, 0, 0, 0.466) 0px 54px 55px, rgba(0, 0, 0, 0.541) 0px -12px 30px, rgb(0, 0, 0) 0px 4px 6px, rgba(0, 0, 0, 0.363) 0px 12px 13px, rgba(0, 0, 0, 0.575) 0px -3px 5px;
 }
 
 /* Resize by screen sizes:

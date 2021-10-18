@@ -1,16 +1,23 @@
 .Pad{
     display: block;
-    background-color: #dfdfdf;
+    background-color: #dfdfdff3;
     height: 100%;
     width: 100%;
 }
 
 .Pad:hover{
     cursor: pointer;
-    /* transition: 0.4s;
-    background-color: tomato; */
+    transition: 0.4s;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
+    opacity: 0.8;
 }
 
-.Pad:hover:active{
-    opacity: 0.8;
+.Pad.center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Pad .Icon{
+    font-size: 5vw;
 }

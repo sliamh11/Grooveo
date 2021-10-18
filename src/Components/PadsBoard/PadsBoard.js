@@ -2,22 +2,27 @@ import './PadsBoard.css';
 import { Pad } from '..';
 import randomColor from 'randomcolor';
 import audioArray from '../../Static/Audio/index';
+import { faCompactDisc, faDrum, faGuitar, faMusic, faGlobeAmericas, faChurch, faHatCowboySide, faInfinity, faHourglassHalf } from '@fortawesome/free-solid-svg-icons';
 
 const PadsBoard = () => {
-    const audioList = []
 
-    const loadAudio = async () => {
-        audioArray.forEach((value) => {
-            audioList.push(value);
-        });
-    }
+    const audioIcons = [
+        faCompactDisc, // 1
+        faHourglassHalf, // 2
+        faGuitar, // 3
+        faHatCowboySide, // 4
+        faGlobeAmericas, // 5
+        faMusic, // 6
+        faInfinity, // 7
+        faDrum, // 8
+        faChurch
+    ]
 
     const loadPads = () => {
-        loadAudio();
-        return audioList.map((value, index) => {
+        return audioArray.map((value, index) => {
             return (
                 <div key={index} className="grid-cell">
-                    <Pad audioPath={value} number={index} color={randomColor()}></Pad>
+                    <Pad audioPath={value} icon={audioIcons[index]} number={index} color={randomColor()}></Pad>
                 </div>
             )
         });

@@ -5,11 +5,17 @@
 
 .pads-grid{
     display: grid;
-    height: 100%;
-    width: 100%;
     grid-template-columns:repeat(3,1fr);
     grid-template-rows:repeat(3,1fr);
     gap: 5%;
+    background-color: #2e2e2e;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    height: 100%;
+    width: 100%;
+    padding: 3%;
+    position: absolute;
+    top:-3%;
+    left:-3%;
 }
 
 .pads-grid > .grid-cell{
@@ -18,41 +24,4 @@
     justify-content: center;
     width: 100%;
     height: 100%;
-    
-}
-
-.Pad.number0{
-    /* color */
-}
-
-.Pad.number1{
-    /* color */
-}
-
-.Pad.number2{
-    /* color */
-}
-
-.Pad.number3{
-    /* color */
-}
-
-.Pad.number4{
-    /* color */
-}
-
-.Pad.number5{
-    /* color */
-}
-
-.Pad.number6{
-    /* color */
-}
-
-.Pad.number7{
-    /* color */
-}
-
-.Pad.number8{
-    /* color */
 }
