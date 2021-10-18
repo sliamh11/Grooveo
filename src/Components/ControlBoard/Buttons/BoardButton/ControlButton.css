@@ -1,12 +1,19 @@
 .ControlButton{
-    height: 100%;
-    width: 100%;
+    height: 99%;
+    width: 99%;
     position: relative;
+    background-color: #272727;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.ControlButton.active{
+    box-shadow: rgb(0, 0, 0) 3px 3px 6px 0px inset, rgba(0, 0, 0, 0.5) -3px -3px 6px 1px inset;
 }
 
 .ControlButton .Icon{
     font-size: 5vw;
     color: #ffffffce;
+    filter:drop-shadow(0px 5px 15px rgb(0, 0, 0));
 }
 
 .ControlButton .Icon:hover{
@@ -22,14 +29,29 @@
     transition: 0.4s;
 }
 
-.play.active .Icon{
-    color: rgb(0, 160, 0);
+.play.active .Icon:hover{
+    cursor: default;
 }
 
-.stop.active .Icon{
-    color: rgb(236, 10, 10);
+.play.active .Icon{
+    opacity: 0.5;
+    color: rgb(0, 160, 0);
 }
 
 .pause.active .Icon{
     color: rgb(226, 147, 0);
+}
+
+.stop .Icon:hover{
+    transition: 0.4s;
+    color: rgb(236, 10, 10);
+}
+
+.stop .Icon:active{
+    transition:0.2s;
+    opacity: 0.7;
+}
+
+.metronome.active .Icon{
+    color: rgb(22, 22, 221);
 }

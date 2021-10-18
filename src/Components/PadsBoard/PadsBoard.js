@@ -1,7 +1,7 @@
 import './PadsBoard.css';
 import { Pad } from '..';
 import randomColor from 'randomcolor';
-import audioArray from '../../Static/Audio/index';
+import { audioArray } from '../../Static/Audio/index';
 import { faCompactDisc, faDrum, faGuitar, faMusic, faGlobeAmericas, faChurch, faHatCowboySide, faInfinity, faHourglassHalf } from '@fortawesome/free-solid-svg-icons';
 
 const PadsBoard = () => {

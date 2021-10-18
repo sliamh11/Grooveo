@@ -8,10 +8,14 @@ const PlayButton = (props) => {
     const dispatch = useDispatch();
 
     const handlePlayClicked = () => {
-        dispatch(playAction(!isPlayMode));
+        if (!isPlayMode) {
+            dispatch(playAction(!isPlayMode));
+        }
     }
 
-    return <ControlButton {...props} icon={faPlay} className={`play ${isPlayMode ? "active" : ""}`} clickHandler={handlePlayClicked}/>;
+    return <ControlButton {...props} icon={faPlay}
+        className={`play ${isPlayMode ? "active" : ""}`}
+        clickHandler={handlePlayClicked} />;
 }
 
 export default PlayButton;

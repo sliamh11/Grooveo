@@ -1,11 +1,10 @@
-
-const defaultState = {
+const audioDefault = {
     isPlayOn: false,
     isStopOn: false,
     isPauseOn: false
 }
 
-const AudioStateReducer = (state = defaultState, action) => {
+const audioStateReducer = (state = audioDefault, action) => {
     switch (action.type) {
         case "PLAY":
             return { ...state, isPlayOn: action.payload };
@@ -18,8 +17,18 @@ const AudioStateReducer = (state = defaultState, action) => {
     }
 }
 
+const loopStateReducer = (state = false, action) => {
+    switch (action.type) {
+        case "LOOP":
+            return action.payload;
+        default:
+            return state;
+    }
+}
+
 const rootReducer = {
-    audio: AudioStateReducer
+    audio: audioStateReducer,
+    loop: loopStateReducer
 }
 
 export default rootReducer;

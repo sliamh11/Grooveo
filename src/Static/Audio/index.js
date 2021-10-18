@@ -7,6 +7,7 @@ import tangu_groove from './tangu_groove.mp3';
 import maze_politics from './maze_politics.mp3';
 import pase_groove from './pase_groove.mp3';
 import silent_star from './silent_star.mp3';
+import metronome from './metronome_120BPM.mp3';
 
 const audioArray = [
     future_funk_beats,
@@ -20,4 +21,8 @@ const audioArray = [
     silent_star
 ]
 
-export default audioArray;
+export{
+    audioArray,
+    metronome
+} 
+    

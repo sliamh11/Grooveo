@@ -18,3 +18,10 @@ export const stopAction = (isStop) => {
         payload: isStop
     };
 }
+
+export const loopAction = (isNewLoop) => {
+    return {
+        type: "LOOP",
+        payload: isNewLoop
+    };
+}

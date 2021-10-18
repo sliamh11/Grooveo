@@ -1,9 +1,21 @@
-.ControlBoard{
-    height: 75%;
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    grid-template-rows: repeat(2,1fr);
+@media screen and (max-width: 600px) {
+    .ControlBoard{
+        height: 75%;
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .ControlBoard{
+        height: 75%;
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        grid-template-rows: repeat(2,1fr);
+    }
+
 }
 
 .ControlBoard .ControlButton{

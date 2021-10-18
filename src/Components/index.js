@@ -6,6 +6,7 @@ import ControlButton from "./ControlBoard/Buttons/BoardButton/ControlButton";
 import PlayButton from "./ControlBoard/Buttons/PlayButton";
 import StopButton from './ControlBoard/Buttons/StopButton';
 import PauseButton from './ControlBoard/Buttons/PauseButton';
+import MetronomeButton from "./ControlBoard/Buttons/metronomeButton";
 
 export {
     PadsBoard,
@@ -15,5 +16,6 @@ export {
     ControlButton,
     PlayButton,
     StopButton,
-    PauseButton
+    PauseButton,
+    MetronomeButton
 }

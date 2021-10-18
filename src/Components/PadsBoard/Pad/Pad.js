@@ -2,6 +2,7 @@ import './Pad.css';
 import { useEffect, useState } from 'react';
 import useSound from 'use-sound';
 import { Icon } from 'UIKit';
+import { useSelector } from 'react-redux';
 
 const Pad = ({ icon, audioPath, color }) => {
     const soundOptions = {
@@ -9,21 +10,52 @@ const Pad = ({ icon, audioPath, color }) => {
         playbackRate: 1,
         loop: true
     }
+
     const [play, exposedData] = useSound(audioPath, soundOptions);
     const { stop, pause } = exposedData;
-    const [isPlaying, setIsPlaying] = useState(false);
+    const audioMode = useSelector((state) => state.audio);
+    const isNewLoop = useSelector((state) => state.loop);
+    const [isPadActive, setIsPadActive] = useState(false);
+    const [isWaitingToInit, setIsWaitingToInit] = useState(false);
     const padStyle = getPadStyle(color);
 
     useEffect(() => {
-        isPlaying ? play() : stop();
-    }, [isPlaying]);
+        if (isNewLoop && isPadActive && isWaitingToInit) {
+            play();
+            setIsWaitingToInit(false);
+        }
+    }, [isNewLoop]);
 
-    const handleClicked = () => {
-        setIsPlaying(!isPlaying);
+    useEffect(() => {
+        isPadActive ? setIsWaitingToInit(true) : stop();
+    }, [isPadActive]);
+
+    useEffect(() => {
+        if (isPadActive && audioMode.isPlayOn) {
+            play();
+        }
+    }, [audioMode.isPlayOn]);
+
+    useEffect(() => {
+        if (isPadActive && audioMode.isPauseOn) {
+            pause();
+        } else if (isPadActive && audioMode.isPlayOn) {
+            play();
+        }
+    }, [audioMode.isPauseOn]);
+
+    useEffect(() => {
+        if (isPadActive && audioMode.isStopOn) {
+            stop();
+        }
+    }, [audioMode.isStopOn]);
+
+    const handlePadClicked = () => {
+        setIsPadActive(!isPadActive);
     }
 
-    function getPadStyle(color){
-        const bgColor = isPlaying ? color : "";
+    function getPadStyle(color) {
+        const bgColor = isPadActive ? color : "";
         if (bgColor === "")
             return {
                 backgroundColor: "",
@@ -39,6 +71,7 @@ const Pad = ({ icon, audioPath, color }) => {
         }
 
     }
+
     function convertHexToRGBA(hexCode, opacity) {
         if (hexCode === "")
             return "";
@@ -57,7 +90,7 @@ const Pad = ({ icon, audioPath, color }) => {
     };
 
     return (
-        <div className={`Pad center ${isPlaying ? "active" : ""}`} style={padStyle} onClick={handleClicked} >
+        <div className={`Pad center ${isPadActive ? "active" : ""}`} style={padStyle} onClick={handlePadClicked} >
             <Icon icon={icon ? icon : ""} />
         </div>
     )
