@@ -1,12 +1,12 @@
 .ControlBoard{
-    height: 100%;
+    height: 75%;
     width: 100%;
     display: grid;
     grid-template-columns: repeat(3,1fr);
     grid-template-rows: repeat(2,1fr);
 }
 
-.ControlBoard > .center{
+.ControlBoard .ControlButton{
     display: flex;
     align-items: center;
     justify-content:center;

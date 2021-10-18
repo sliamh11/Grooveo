@@ -1,31 +1,21 @@
 
-// Options:
-// 1. Create an object with 3 properties and change it's properties
-// 2. Create a reducer for each action
-
-
-// Search for solution in internet
 const defaultState = {
     isPlayOn: false,
     isStopOn: false,
     isPauseOn: false
 }
 
-const AudioStateReducer = (state = {}, action) => {
+const AudioStateReducer = (state = defaultState, action) => {
     switch (action.type) {
         case "PLAY":
-            state.isPlayOn = action.payload;
-            break;
+            return { ...state, isPlayOn: action.payload };
         case "STOP":
-            state.isStopOn = action.payload;
-            break;
+            return { ...state, isStopOn: action.payload };
         case "PAUSE":
-            state.isPauseOn = action.payload;
-            break;
+            return { ...state, isPauseOn: action.payload };
         default:
-            break;
+            return state;
     }
-    return state ? state : {};
 }
 
 const rootReducer = {

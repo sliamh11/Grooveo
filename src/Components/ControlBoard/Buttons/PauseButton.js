@@ -8,10 +8,10 @@ const PauseButton = (props) => {
     const dispatch = useDispatch();
 
     const handlePauseClicked = () => {
-        dispatch(pauseAction(isPauseMode));
+        dispatch(pauseAction(!isPauseMode));
     }
 
-    return <ControlButton {...props} icon={faPause} clickHandler={handlePauseClicked}/>;
+    return <ControlButton {...props} icon={faPause} className={`pause ${isPauseMode ? "active" : ""}`} clickHandler={handlePauseClicked}/>;
 }
 
 export default PauseButton;

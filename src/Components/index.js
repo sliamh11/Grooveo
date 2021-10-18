@@ -15,5 +15,5 @@ export {
     ControlButton,
     PlayButton,
     StopButton,
-    PauseButton as ResetButton
+    PauseButton
 }

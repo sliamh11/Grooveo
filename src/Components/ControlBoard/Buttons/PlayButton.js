@@ -11,8 +11,7 @@ const PlayButton = (props) => {
         dispatch(playAction(!isPlayMode));
     }
 
-    // Add className={`${isPlayMode ? active : ""}`} and if so - add font-color green in ControlButton 
-    return <ControlButton {...props} icon={faPlay} clickHandler={handlePlayClicked}/>;
+    return <ControlButton {...props} icon={faPlay} className={`play ${isPlayMode ? "active" : ""}`} clickHandler={handlePlayClicked}/>;
 }
 
 export default PlayButton;

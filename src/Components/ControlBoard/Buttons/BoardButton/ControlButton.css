@@ -1,15 +1,35 @@
 .ControlButton{
-
+    height: 100%;
+    width: 100%;
+    position: relative;
 }
 
-.play{
-
+.ControlButton .Icon{
+    font-size: 5vw;
+    color: #ffffffce;
 }
 
-.stop{
-
+.ControlButton .Icon:hover{
+    cursor: pointer;
+    opacity: 0.7;
 }
 
-.reset{
-    
+.ControlButton .Icon:hover:active{
+    opacity: 0.9;
+}
+
+.ControlButton.active .Icon{
+    transition: 0.4s;
+}
+
+.play.active .Icon{
+    color: rgb(0, 160, 0);
+}
+
+.stop.active .Icon{
+    color: rgb(236, 10, 10);
+}
+
+.pause.active .Icon{
+    color: rgb(226, 147, 0);
 }
