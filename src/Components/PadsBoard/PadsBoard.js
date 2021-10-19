@@ -5,20 +5,20 @@ import { audioArray } from '../../Static/Audio/index';
 import { faCompactDisc, faDrum, faGuitar, faMusic, faGlobeAmericas, faChurch, faHatCowboySide, faInfinity, faHourglassHalf } from '@fortawesome/free-solid-svg-icons';
 
 const PadsBoard = () => {
-
     const audioIcons = [
-        faCompactDisc, // 1
-        faHourglassHalf, // 2
-        faGuitar, // 3
-        faHatCowboySide, // 4
-        faGlobeAmericas, // 5
-        faMusic, // 6
-        faInfinity, // 7
-        faDrum, // 8
+        faCompactDisc,
+        faHourglassHalf,
+        faGuitar,
+        faHatCowboySide,
+        faGlobeAmericas,
+        faMusic,
+        faInfinity,
+        faDrum,
         faChurch
     ]
 
     const loadPads = () => {
+        // Icons are loaded by the audio file's order.
         return audioArray.map((value, index) => {
             return (
                 <div key={index} className="grid-cell">

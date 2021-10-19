@@ -3,15 +3,15 @@ import { ControlButton } from "Components";
 import { useDispatch, useSelector } from "react-redux";
 import { pauseAction } from "State/Actions";
 
-const PauseButton = (props) => {
+const PauseButton = () => {
     const isPauseMode = useSelector((state) => state.audio.isPauseOn);
     const dispatch = useDispatch();
 
-    const handlePauseClicked = () => {
+    const handleClick = () => {
         dispatch(pauseAction(!isPauseMode));
     }
 
-    return <ControlButton {...props} icon={faPause} className={`pause ${isPauseMode ? "active" : ""}`} clickHandler={handlePauseClicked}/>;
+    return <ControlButton icon={faPause} className={`pause ${isPauseMode ? "active" : ""}`} clickHandler={handleClick}/>;
 }
 
 export default PauseButton;

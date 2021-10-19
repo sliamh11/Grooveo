@@ -10,43 +10,46 @@ const Pad = ({ icon, audioPath, color }) => {
         playbackRate: 1,
         loop: true
     }
-
     const [play, exposedData] = useSound(audioPath, soundOptions);
     const { stop, pause } = exposedData;
     const audioMode = useSelector((state) => state.audio);
-    const isNewLoop = useSelector((state) => state.loop);
-    const [isPadActive, setIsPadActive] = useState(false);
-    const [isWaitingToInit, setIsWaitingToInit] = useState(false);
+    const isNewLoop = useSelector((state) => state.loop); // Indication for starting a new loop
+    const [isPadActive, setIsPadActive] = useState(false); // Is it pressed or not
+    const [isPadPlaying, setIsPadPlaying] = useState(false); // Is it currently playing
     const padStyle = getPadStyle(color);
 
     useEffect(() => {
-        if (isNewLoop && isPadActive && isWaitingToInit) {
-            play();
-            setIsWaitingToInit(false);
+        if (isNewLoop && isPadActive && !isPadPlaying) {
+            playPadAudio();
         }
     }, [isNewLoop]);
 
     useEffect(() => {
-        isPadActive ? setIsWaitingToInit(true) : stop();
+        if(!isPadActive){
+            stopPadAudio();
+        }
     }, [isPadActive]);
 
     useEffect(() => {
+        // If there's an indication for playing audio
         if (isPadActive && audioMode.isPlayOn) {
-            play();
+            playPadAudio();
         }
     }, [audioMode.isPlayOn]);
 
     useEffect(() => {
+        // If there's an indication for pausing audio.
         if (isPadActive && audioMode.isPauseOn) {
-            pause();
-        } else if (isPadActive && audioMode.isPlayOn) {
-            play();
-        }
+            pausePadAudio();
+        } 
+        // else if (isPadActive && audioMode.isPlayOn) {
+        //     playPadAudio();
+        // }
     }, [audioMode.isPauseOn]);
 
     useEffect(() => {
         if (isPadActive && audioMode.isStopOn) {
-            stop();
+            stopPadAudio();
         }
     }, [audioMode.isStopOn]);
 
@@ -88,6 +91,21 @@ const Pad = ({ icon, audioPath, color }) => {
 
         return `rgba(${r},${g},${b},${opacity / 100})`;
     };
+
+    const playPadAudio = () => {
+        play();
+        setIsPadPlaying(true);
+    }
+
+    const stopPadAudio = () => {
+        stop();
+        setIsPadPlaying(false);
+    }
+
+    const pausePadAudio = () => {
+        pause();
+        setIsPadPlaying(false);
+    }
 
     return (
         <div className={`Pad center ${isPadActive ? "active" : ""}`} style={padStyle} onClick={handlePadClicked} >

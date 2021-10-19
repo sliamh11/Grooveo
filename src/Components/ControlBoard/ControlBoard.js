@@ -7,7 +7,6 @@ import { useEffect, useState } from 'react';
 import { playAction, stopAction, pauseAction, loopAction } from 'State/Actions';
 
 const ControlBoard = () => {
-
     const [soundOptions, setSoundOptions] = useState({
         volume: 0.5,
         playbackRate: 1,
@@ -19,6 +18,7 @@ const ControlBoard = () => {
     const dispatch = useDispatch();
     const audioMode = useSelector((state) => state.audio);
 
+    // UseEffects role is to get notified when a state changes and act accordingly, also to notify other useEffects.
     useEffect(() => {
         if (audioMode.isPlayOn) {
             play();
@@ -30,10 +30,8 @@ const ControlBoard = () => {
     useEffect(() => {
         if (audioMode.isPauseOn) {
             pause();
-        } else if (audioMode.isPlayOn) {
-            play();
-            dispatch(pauseAction(false));
-        }
+            dispatch(playAction(false));
+        } 
     }, [audioMode.isPauseOn]);
 
     useEffect(() => {
@@ -46,7 +44,7 @@ const ControlBoard = () => {
     }, [audioMode.isStopOn]);
 
     function onLoopEnded(){
-        // update to true and immediately to false just to notify other useEffects
+        // update to true and immediately to false to notify other useEffects.
         dispatch(loopAction(true));
         dispatch(loopAction(false));
     }

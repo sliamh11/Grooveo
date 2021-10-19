@@ -16,13 +16,9 @@
     filter:drop-shadow(0px 5px 15px rgb(0, 0, 0));
 }
 
-.ControlButton .Icon:hover{
+.ControlButton:hover{
     cursor: pointer;
-    opacity: 0.7;
-}
-
-.ControlButton .Icon:hover:active{
-    opacity: 0.9;
+    opacity: 0.8;
 }
 
 .ControlButton.active .Icon{
@@ -42,14 +38,9 @@
     color: rgb(226, 147, 0);
 }
 
-.stop .Icon:hover{
-    transition: 0.4s;
-    color: rgb(236, 10, 10);
-}
-
-.stop .Icon:active{
+.stop.active .Icon{
     transition:0.2s;
-    opacity: 0.7;
+    color: rgb(236, 10, 10);
 }
 
 .metronome.active .Icon{
