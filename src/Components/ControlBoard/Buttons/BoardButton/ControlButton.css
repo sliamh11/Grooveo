@@ -6,10 +6,6 @@
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
-.ControlButton.active{
-    box-shadow: rgb(0, 0, 0) 3px 3px 6px 0px inset, rgba(0, 0, 0, 0.5) -3px -3px 6px 1px inset;
-}
-
 .ControlButton .Icon{
     font-size: 5vw;
     color: #ffffffce;
@@ -19,6 +15,11 @@
 .ControlButton:hover{
     cursor: pointer;
     opacity: 0.8;
+}
+
+/* CSS for active buttons */
+.ControlButton.active{
+    box-shadow: rgb(0, 0, 0) 3px 3px 6px 0px inset, rgba(0, 0, 0, 0.5) -3px -3px 6px 1px inset;
 }
 
 .ControlButton.active .Icon{
@@ -31,7 +32,7 @@
 
 .play.active .Icon{
     opacity: 0.5;
-    color: rgb(0, 160, 0);
+    color: rgb(0, 255, 0);
 }
 
 .pause.active .Icon{
