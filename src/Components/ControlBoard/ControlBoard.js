@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 import { playAction, stopAction, pauseAction, loopAction } from 'State/Actions';
 
 const ControlBoard = () => {
+    /* eslint-disable */
     const [soundOptions, setSoundOptions] = useState({
         volume: 0.5,
         playbackRate: 1,
@@ -25,13 +26,13 @@ const ControlBoard = () => {
             dispatch(stopAction(false));
             dispatch(pauseAction(false));
         }
-    }, [audioMode.isPlayOn])
+    }, [audioMode.isPlayOn]);
 
     useEffect(() => {
         if (audioMode.isPauseOn) {
             pause();
             dispatch(playAction(false));
-        } 
+        }
     }, [audioMode.isPauseOn]);
 
     useEffect(() => {
@@ -43,7 +44,7 @@ const ControlBoard = () => {
         }
     }, [audioMode.isStopOn]);
 
-    function onLoopEnded(){
+    function onLoopEnded() {
         // update to true and immediately to false to notify other useEffects.
         dispatch(loopAction(true));
         dispatch(loopAction(false));

@@ -5,6 +5,7 @@ import { Icon } from 'UIKit';
 import { useSelector } from 'react-redux';
 
 const Pad = ({ icon, audioPath, color }) => {
+    /* eslint-disable */
     const soundOptions = {
         volume: 0.2,
         playbackRate: 1,
