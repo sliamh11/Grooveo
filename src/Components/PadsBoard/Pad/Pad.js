@@ -26,7 +26,7 @@ const Pad = ({ icon, audioPath, color }) => {
     }, [isNewLoop]);
 
     useEffect(() => {
-        if(!isPadActive){
+        if (!isPadActive) {
             stopPadAudio();
         }
     }, [isPadActive]);
@@ -42,7 +42,7 @@ const Pad = ({ icon, audioPath, color }) => {
         // If there's an indication for pausing audio.
         if (isPadActive && audioMode.isPauseOn) {
             pausePadAudio();
-        } 
+        }
         // else if (isPadActive && audioMode.isPlayOn) {
         //     playPadAudio();
         // }
