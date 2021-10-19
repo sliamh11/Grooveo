@@ -4,8 +4,7 @@ import { useSelector } from "react-redux";
 
 const MetronomeButton = ({ data, setData }) => {
     const isPlaying = useSelector((state) => state.audio.isPlayOn);
-    const isPausing = useSelector((state) => state.audio.isPauseOn);
-    const isActive = data.volume > 0 && (isPlaying || isPausing);
+    const isActive = data.volume > 0 && isPlaying;
 
     const handleClick = () => {
         if (data.volume === 0) {
