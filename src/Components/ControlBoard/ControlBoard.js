@@ -7,7 +7,6 @@ import { useEffect, useState } from 'react';
 import { playAction, stopAction, pauseAction, loopAction } from 'State/Actions';
 
 const ControlBoard = () => {
-    /* eslint-disable */
     const [soundOptions, setSoundOptions] = useState({
         volume: 0.5,
         playbackRate: 1,
@@ -40,7 +39,7 @@ const ControlBoard = () => {
             stop();
             dispatch(playAction(false));
             dispatch(pauseAction(false));
-            dispatch(stopAction(false)); // Set it back to false.
+            dispatch(stopAction(false)); // Set it back to default.
         }
     }, [audioMode.isStopOn]);
 

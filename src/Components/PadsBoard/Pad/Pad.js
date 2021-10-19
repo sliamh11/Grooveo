@@ -5,7 +5,6 @@ import { Icon } from 'UIKit';
 import { useSelector } from 'react-redux';
 
 const Pad = ({ icon, audioPath, color }) => {
-    /* eslint-disable */
     const soundOptions = {
         volume: 0.2,
         playbackRate: 1,
@@ -13,7 +12,7 @@ const Pad = ({ icon, audioPath, color }) => {
     }
     const [play, exposedData] = useSound(audioPath, soundOptions);
     const { stop, pause } = exposedData;
-    const audioMode = useSelector((state) => state.audio);
+    const audioState = useSelector((state) => state.audio);
     const isNewLoop = useSelector((state) => state.loop); // Indication for starting a new loop
     const [isPadActive, setIsPadActive] = useState(false); // Is it pressed or not
     const [isPadPlaying, setIsPadPlaying] = useState(false); // Is it currently playing
@@ -31,34 +30,31 @@ const Pad = ({ icon, audioPath, color }) => {
         }
     }, [isPadActive]);
 
+    // Below useEffects are listening to any change of audioState and act accordingly.
     useEffect(() => {
-        // If there's an indication for playing audio
-        if (isPadActive && audioMode.isPlayOn) {
+        if(isPadActive && audioState.isPlayOn){
             playPadAudio();
         }
-    }, [audioMode.isPlayOn]);
+    }, [audioState.isPlayOn]);
 
     useEffect(() => {
-        // If there's an indication for pausing audio.
-        if (isPadActive && audioMode.isPauseOn) {
+        if(isPadActive && audioState.isPauseOn){
             pausePadAudio();
         }
-        // else if (isPadActive && audioMode.isPlayOn) {
-        //     playPadAudio();
-        // }
-    }, [audioMode.isPauseOn]);
+    }, [audioState.isPauseOn]);
 
     useEffect(() => {
-        if (isPadActive && audioMode.isStopOn) {
+        if(isPadActive && audioState.isStopOn){
             stopPadAudio();
         }
-    }, [audioMode.isStopOn]);
+    }, [audioState.isStopOn]);
 
     const handlePadClicked = () => {
         setIsPadActive(!isPadActive);
     }
 
     function getPadStyle(color) {
+        // Sets the pad's shadow to match it's color.
         const bgColor = isPadActive ? color : "";
         if (bgColor === "")
             return {
