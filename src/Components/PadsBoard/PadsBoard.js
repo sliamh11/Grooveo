@@ -18,7 +18,7 @@ const PadsBoard = () => {
     ]
 
     const loadPads = () => {
-        // Icons are loaded by the audio file's order.
+        // Icons are loaded by the audioArray order.
         return audioArray.map((value, index) => {
             return (
                 <div key={index} className="grid-cell">
